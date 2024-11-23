@@ -1,0 +1,29 @@
+.answer-btn {
+    background-color: #F5F5F5;
+    color: gray;
+    border: none;
+    padding: 20px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .answer-btn:hover {
+    background-color: #F05A7E;
+    color: #F5F5F5;
+    transform: scale(1.05);
+  }
+  
+  .answer-btn:active {
+    background-color: #F05A7E;
+    color: #F5F5F5
+  }
+  
+  .answer-btn:focus {
+    outline: none;
+  }
+  

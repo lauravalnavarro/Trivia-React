@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sora', sans-serif;
+    background-color: #FFBE98;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  .trivia-container {
+    background-color: #ffffff;
+    width: 80rem;
+    max-width: 600px;
+    height: 80%;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(124, 67, 67, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    overflow: hidden;
+
+    .home-title {
+        font-size: 4rem; 
+        font-weight: bold; 
+        text-align: center;
+        margin-bottom: 20px;
+        letter-spacing: 5px;
+        padding: 20px;
+    }
+    .home-description{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 19rem;
+        padding: 0 0 5rem 0;
+    }
+  
+  .letter {
+    font-size: 5rem;  
+    display: inline-block;
+    letter-spacing: 0.5rem;
+  }
+  .question-container{
+    height: 80rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .answer-options{
+    display: flex;
+    flex-direction: column;
+  }
+  .results-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 25rem;
+  }
+   
+  .results-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .results-score {
+    font-size: 1.5rem;
+    color: #F05A7E;
+    margin-bottom: 20px;
+  }
+  
+  .score {
+    font-weight: bold;
+  }
+  
+  .restart-btn {
+    background-color: #F05A7E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .restart-btn:hover {
+    background-color: #F05A7E;
+  }
+  
+  .restart-btn:active {
+    background-color: #F05A7E;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+  }
+  
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: transparent;
+    transform-origin: bottom left;
+    animation: confetti-fall 3s linear infinite, confetti-spin 1.5s ease infinite;
+  }
+  
+  .confetti-piece:nth-child(odd) {
+    border-radius: 50%;
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+  
+  @keyframes confetti-spin {
+    0%, 100% {
+      transform: rotateZ(0) rotateX(0);
+    }
+    50% {
+      transform: rotateZ(180deg) rotateX(360deg);
+    }
+  }
+}
