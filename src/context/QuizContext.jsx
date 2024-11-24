@@ -10,46 +10,49 @@ export const QuizContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = async (language = 'en') => {
     try {
-      const response = await axios.get('https://opentdb.com/api.php?amount=10&type=multiple');
-      const formattedQuestions = response.data.results.map((item) => {
-        const incorrectAnswers = item.incorrect_answers.map((answer) => ({
+      const { data } = await axios.get('https://opentdb.com/api.php', {
+        params: {
+          amount: 10, 
+          type: 'multiple', 
+          lang: language, 
+        },
+      });
+  
+      const formattedQuestions = data.results.map(({incorrect_answers, correct_answer, question}) => {
+        const incorrectAnswers = incorrect_answers.map((answer) => ({
           answerText: answer,
           isCorrect: false,
         }));
         const correctAnswer = {
-          answerText: item.correct_answer,
+          answerText: correct_answer,
           isCorrect: true,
         };
-        console.log(incorrectAnswers, correctAnswer);
+  
         return {
-          questionText: item.question,
+          questionText: question,
           answerOptions: [...incorrectAnswers, correctAnswer].sort(() => Math.random() - 0.5),
         };
       });
+  
       setQuestions(formattedQuestions);
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
   };
+  
 
   useEffect(() => {
     fetchQuestions();
   }, []);
 
   const handleAnswerOptionClick = (isCorrect) => {
-    console.log(isCorrect);
-    if (isCorrect) {
-      setScore((prev)=>prev + 1);
-    }
-    console.log(score);
-
+    isCorrect && setScore((prev)=>prev + 1);
     const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    }
+    nextQuestion < questions.length && setCurrentQuestion(nextQuestion);
+
   };
 
   const handleRestart = () =>{

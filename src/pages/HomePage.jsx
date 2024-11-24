@@ -22,13 +22,13 @@ const HomePage = () => {
         <span className="letter" style={{ color: '#FF9633' }}>A</span>
       </h1>
       <div className="home-description">
-        <p>
-            Pon a prueba tus conocimientos con preguntas interesantes y divertidas.
+      <p>
+            Test your knowledge with interesting and fun questions.
         </p>
-        <p>¿Estás listo para el desafío? 🍀</p>
+        <p>Are you ready for the challenge? 🍀</p>
       </div>
       <Button
-        text="Comenzar 🚀" 
+        text="Start 🚀" 
         onClick={onStart} 
         className="primary-btn" 
       />

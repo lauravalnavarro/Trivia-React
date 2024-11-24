@@ -8,7 +8,44 @@ body {
     align-items: center;
     height: 100vh;
     box-sizing: border-box;
+    width: 100%;
   }
+
+header {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: flex-end; 
+    z-index: 1000; 
+}
+
+
+.theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%; 
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1); 
+    background-color: rgba(255, 255, 255, 1); 
+}
+
+.theme-toggle-btn i {
+    font-size: 24px;
+}
+
   
   .trivia-container {
     background-color: #ffffff;
@@ -141,4 +178,53 @@ body {
       transform: rotateZ(180deg) rotateX(360deg);
     }
   }
-}
+  }
+  /* Estilos para el modo oscuro */
+  body.dark-mode {
+    color: white;  /* Cambiar el color del título a blanco */
+    background-color: #201E43;
+  }
+
+body.dark-mode .trivia-container {
+    background-color: #134B70; /* Fondo más oscuro para el contenedor en modo oscuro */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Cambia la sombra para que se vea más sutil */
+    color: white;  /* Color de texto blanco para visibilidad en modo oscuro */
+  }
+  
+  body.dark-mode .home-title {
+    color: white;  /* Cambiar el color del título a blanco */
+  }
+  
+  body.dark-mode .home-description {
+    color: white;  /* Cambiar el color de la descripción a blanco */
+  }
+  
+  body.dark-mode .results-title {
+    color: white;  /* Cambiar color de los resultados a blanco */
+  }
+  
+  body.dark-mode .results-score {
+    color: #F05A7E;  /* Mantener el color rosado para los resultados en modo oscuro */
+  }
+  
+  body.dark-mode .score {
+    font-weight: bold;
+    color: white;  /* Asegurar que el texto de la puntuación se vea bien en modo oscuro */
+  }
+  
+  body.dark-mode .restart-btn {
+    background-color: #F05A7E;  /* Mantener el color del botón igual en modo oscuro */
+    color: white;
+  }
+  
+  body.dark-mode .restart-btn:hover {
+    background-color: #F05A7E;
+  }
+  
+  body.dark-mode .restart-btn:active {
+    background-color: #F05A7E;
+  }
+  
+  body.dark-mode .confetti {
+    opacity: 0.9;  /* Hacer los confetis un poco más visibles en modo oscuro */
+  }

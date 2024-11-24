@@ -8,7 +8,6 @@ function ResultsPage() {
     const navigate = useNavigate();
 
     const onRestart = () =>{
-        console.log('Restart');
         handleRestart();
         navigate('/');
     }
@@ -17,20 +16,23 @@ function ResultsPage() {
   return (
     <div className="trivia-container">
         <div className="results-container">
-      <h1 className="results-title">Resultados</h1>
-      {score + 1 === questions.length && <>
-      <h2>FELICITACIONES!</h2>
-        <Confetti/>
-      </> }
-      <p className="results-score">
-        Has obtenido <span className="score">{score + 1}</span> de {questions.length} preguntas correctas.
-      </p>
-      <Button
-        text="Volver a jugar" 
-        onClick={onRestart} 
-        className="primary-btn" 
-      />
-    </div>
+            <h1 className="results-title">Results</h1>
+                {
+                    score + 1 === questions.length && 
+                    <>
+                        <h2>CONGRATULATIONS!</h2>
+                            <Confetti/>
+                    </>
+            }
+            <p className="results-score">
+            You got <span className="score">{score + 1}</span> out of  {questions.length} questions correct.
+            </p>
+            <Button
+                text="Restart" 
+                onClick={onRestart} 
+                className="primary-btn" 
+            />
+        </div>
     </div>
   );
 }

@@ -15,23 +15,24 @@ export default function QuizPage() {
         }
     }
 
+    const {questionText, answerOptions} = questions[currentQuestion];
 
 	return (
         <div className="trivia-container">
             {
                 questions.length !== 0 && 
             <>
-          <div className="question-section">
-            <div className="question-count">
-              <span>Pregunta {currentQuestion + 1}</span>/{questions.length}
-            </div>
-          </div>
-    
-          <Question
-            question={questions[currentQuestion].questionText}
-            answers={questions[currentQuestion].answerOptions}
-            onAnswerSelect={handleQuestion}
-          />
+                <div className="question-section">
+                    <div className="question-count">
+                    <span>Question {currentQuestion + 1}</span>/{questions.length}
+                    </div>
+                </div>
+            
+                <Question
+                    question={questionText}
+                    answers={answerOptions}
+                    onAnswerSelect={handleQuestion}
+                />
             </>
             }
         </div>
