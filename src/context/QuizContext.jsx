@@ -29,6 +29,7 @@ export const QuizContextProvider = ({ children }) => {
           answerText: correct_answer,
           isCorrect: true,
         };
+        console.log(correctAnswer);
   
         return {
           questionText: question,
